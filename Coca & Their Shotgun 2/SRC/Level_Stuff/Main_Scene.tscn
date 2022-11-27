@@ -1,0 +1,198 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Sprites/Floor.png" type="Texture" id=1]
+[ext_resource path="res://SRC/Player/Coca.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SRC/Level_Stuff/Streak.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sprites/NG_Vending_Machine.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Carpet.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/DiaryOfAn8BitMage-lYDD.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://SRC/Level_Stuff/Main_Scene.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Music/1114403_Quest-to-defeat-some-deep-.mp3" type="AudioStream" id=8]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 150, 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 9
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Glow"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.427451, 0, 1 ), Color( 1, 0.937255, 0.00392157, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:custom_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.709804, 0.0196078, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RichTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.733333, 0, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 6 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 15
+outline_size = 3
+outline_color = Color( 0.313726, 0.0156863, 0.0156863, 1 )
+font_data = ExtResource( 6 )
+
+[node name="Main_Scene" type="YSort"]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Floor" type="Node2D" parent="."]
+z_index = -2
+
+[node name="TextureRect" type="TextureRect" parent="Floor"]
+margin_top = 96.0
+margin_right = 300.0
+margin_bottom = 250.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Sprite" type="Sprite" parent="Floor"]
+position = Vector2( 148, 171 )
+texture = ExtResource( 5 )
+
+[node name="Wall" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Wall"]
+margin_right = 300.0
+margin_bottom = 96.0
+color = Color( 0.858824, 0.701961, 0.564706, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Wall"]
+margin_top = 16.0
+margin_right = 300.0
+margin_bottom = 48.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+position = Vector2( 150, 92 )
+shape = SubResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Wall"]
+self_modulate = Color( 1, 0.733333, 0, 1 )
+margin_left = 6.0
+margin_top = 28.0
+margin_right = 334.0
+margin_bottom = 68.0
+rect_clip_content = false
+custom_colors/default_color = Color( 1, 0.709804, 0.0196078, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[wave]This is the Newgrounds Office.. Don't piss on the counter!"
+text = "This is the Newgrounds Office.. Don't piss on the counter!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wall"]
+autoplay = "Glow"
+anims/Glow = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[node name="Streak" parent="." instance=ExtResource( 3 )]
+position = Vector2( 104, 88 )
+
+[node name="Vending_Machine" type="StaticBody2D" parent="."]
+position = Vector2( 208, 88 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Vending_Machine"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vending_Machine"]
+position = Vector2( 0, 16 )
+shape = SubResource( 1 )
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="FNF_Fan_Spawner" type="Timer" parent="Timers"]
+wait_time = 0.5
+
+[node name="Trucker_Girl_Spawner" type="Timer" parent="Timers"]
+wait_time = 2.5
+
+[node name="Sticker_Spawner" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Start_Doing_Stuff" type="Timer" parent="Timers"]
+wait_time = 7.0
+one_shot = true
+autostart = true
+
+[node name="Enemies" type="YSort" parent="."]
+
+[node name="Sticker_Container" type="Node2D" parent="."]
+
+[node name="Coca" parent="." instance=ExtResource( 2 )]
+position = Vector2( 146, 160 )
+
+[node name="Tutorial" type="Node2D" parent="."]
+z_index = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorial"]
+margin_left = 6.0
+margin_top = 78.0
+margin_right = 289.0
+margin_bottom = 267.0
+rect_clip_content = false
+custom_colors/default_color = Color( 1, 0.929412, 0.760784, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center][wave]WASD - MOVE
+HOLD LMB - SHOOT
+SPACE - JUMP"
+text = "WASD - MOVE
+HOLD LMB - SHOOT
+SPACE - JUMP"
+scroll_active = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -7.5
+autoplay = true
+
+[connection signal="timeout" from="Timers/FNF_Fan_Spawner" to="." method="_on_FNF_Fan_Spawner_timeout"]
+[connection signal="timeout" from="Timers/Trucker_Girl_Spawner" to="." method="_on_Trucker_Girl_Spawner_timeout"]
+[connection signal="timeout" from="Timers/Sticker_Spawner" to="." method="_on_Sticker_Spawner_timeout"]
+[connection signal="timeout" from="Timers/Start_Doing_Stuff" to="." method="_on_Start_Doing_Stuff_timeout"]

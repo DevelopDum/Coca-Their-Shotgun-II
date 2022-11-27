@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/carhorn-92343-[AudioTrimmer.com].mp3-13cddb17bc58988683fb51ac09a57591.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/carhorn-92343-[AudioTrimmer.com].mp3"
+dest_files=[ "res://.import/carhorn-92343-[AudioTrimmer.com].mp3-13cddb17bc58988683fb51ac09a57591.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

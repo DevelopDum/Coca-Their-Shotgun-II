@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/shotgun-firing-3-14483.mp3-2787d5185d139b000a8ade4b9c242afb.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/shotgun-firing-3-14483.mp3"
+dest_files=[ "res://.import/shotgun-firing-3-14483.mp3-2787d5185d139b000a8ade4b9c242afb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

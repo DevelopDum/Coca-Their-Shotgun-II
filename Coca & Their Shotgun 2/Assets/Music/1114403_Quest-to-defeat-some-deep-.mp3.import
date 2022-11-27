@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/1114403_Quest-to-defeat-some-deep-.mp3-eda28a61a5ab40c7b7c376bace5c1178.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/1114403_Quest-to-defeat-some-deep-.mp3"
+dest_files=[ "res://.import/1114403_Quest-to-defeat-some-deep-.mp3-eda28a61a5ab40c7b7c376bace5c1178.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

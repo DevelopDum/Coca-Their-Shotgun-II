@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/carhorn-92343.mp3-badb455580ebbea9b0b1450d89d5463f.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/carhorn-92343.mp3"
+dest_files=[ "res://.import/carhorn-92343.mp3-badb455580ebbea9b0b1450d89d5463f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

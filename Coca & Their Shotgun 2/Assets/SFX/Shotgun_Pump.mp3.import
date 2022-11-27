@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Shotgun_Pump.mp3-7210ba171846e76fc5dfe31a72cd1811.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Shotgun_Pump.mp3"
+dest_files=[ "res://.import/Shotgun_Pump.mp3-7210ba171846e76fc5dfe31a72cd1811.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
